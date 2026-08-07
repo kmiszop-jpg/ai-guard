@@ -69,16 +69,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className="min-h-screen bg-[url('/bg3.png')] bg-cover bg-center bg-no-repeat bg-fixed bg-black/40 bg-lend-overlay backdrop-blur-sm p-4">
       {/* Background Gradient Effect */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]" />
 
       {/* HEADER NAVBAR */}
       <header className="relative z-10 border-b border-slate-800/80 bg-slate-950/60 backdrop-blur-md sticky top-0 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
-              <ShieldCheck className="w-6 h-6 text-indigo-400" />
+              <ShieldCheck className="w-6 h-6 text-indigo-300" />
             </div>
             <div>
               <h1 className="text-lg font-bold tracking-wider text-white flex items-center gap-2">
@@ -118,19 +117,17 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* CARD 1: PROTEKSI WAJAH (DiffusionGuard) */}
-          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700/80 transition-all shadow-xl">
+          <div className="bg-[rgba(255,255,255,0.4)] border border-white/50 rounded-2xl p-6 backdrop-blur-xl flex flex-col justify-between hover:border-slate-700/80 transition-all duration-300 shadow-[0_8px_32px_0_rgba(31,38,35,0.15)]">
             <div>
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-xl border border-indigo-500/20">
-                    <ImageIcon className="w-5 h-5" />
-                  </div>
+                  <img src='/image.png' className="w-10 h-10" />
                   <div>
                     <h3 className="font-semibold text-white">Proteksi Foto Wajah</h3>
                     <p className="text-xs text-slate-400">DiffusionGuard Engine</p>
                   </div>
                 </div>
-                <span className="text-[11px] text-slate-500 bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">
+                <span className="text-[11px] text-white bg-blue-700 px-2.5 py-1 rounded-md border border-slate-700">
                   Image Protection
                 </span>
               </div>
@@ -141,8 +138,8 @@ export default function App() {
                   <div className="p-3 bg-slate-800 rounded-full group-hover:scale-110 transition-transform mb-3">
                     <Upload className="w-6 h-6 text-slate-400 group-hover:text-indigo-400" />
                   </div>
-                  <p className="text-sm font-medium text-slate-300">Pilih atau geser foto ke sini</p>
-                  <p className="text-xs text-slate-500 mt-1">Format JPG, PNG (Maksimal 10MB)</p>
+                  <p className="text-sm font-medium text-white">Pilih atau geser foto ke sini</p>
+                  <p className="text-xs text-white mt-1">Format JPG, PNG (Maksimal 10MB)</p>
                   <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                 </label>
               ) : (
@@ -155,7 +152,7 @@ export default function App() {
                     </div>
 
                     {/* Protected Output */}
-                    <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
+                    <div className="bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 flex flex-col items-center justify-center">
                       {imageProtected ? (
                         <div className="w-full">
                           <span className="text-[11px] text-emerald-400 font-medium flex items-center gap-1 mb-2">
@@ -216,19 +213,17 @@ export default function App() {
           </div>
 
           {/* CARD 2: PROTEKSI SUARA (AntiFake) */}
-          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700/80 transition-all shadow-xl">
+          <div className="bg-[rgba(255,255,255,0.4)] border border-slate-800 rounded-2xl p-6 backdrop-blur-sm flex flex-col justify-between hover:border-slate-700/80 transition-all shadow-xl">
             <div>
               <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 bg-violet-500/10 text-violet-400 rounded-xl border border-violet-500/20">
-                    <Mic className="w-5 h-5" />
-                  </div>
+                <div className="flex items-center gap-3">              
+                  <img src='/microphone.png' alt='logo' className='w-10 h-10 object-contain' />
                   <div>
                     <h3 className="font-semibold text-white">Proteksi Sampel Suara</h3>
                     <p className="text-xs text-slate-400">AntiFake Acoustic Engine</p>
                   </div>
                 </div>
-                <span className="text-[11px] text-slate-500 bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">
+                <span className="text-[11px] text-white bg-blue-700 px-2.5 py-1 rounded-md border border-slate-700">
                   Audio Protection
                 </span>
               </div>
@@ -238,8 +233,8 @@ export default function App() {
                   <div className="p-3 bg-slate-800 rounded-full group-hover:scale-110 transition-transform mb-3">
                     <Upload className="w-6 h-6 text-slate-400 group-hover:text-violet-400" />
                   </div>
-                  <p className="text-sm font-medium text-slate-300">Pilih atau geser file audio ke sini</p>
-                  <p className="text-xs text-slate-500 mt-1">Format WAV, MP3 (Lossless disarankan)</p>
+                  <p className="text-sm font-medium text-white">Pilih atau geser file audio ke sini</p>
+                  <p className="text-xs text-white mt-1">Format WAV, MP3 (Lossless disarankan)</p>
                   <input type="file" accept="audio/*" onChange={handleAudioChange} className="hidden" />
                 </label>
               ) : (
@@ -305,8 +300,8 @@ export default function App() {
         {/* INFO NOTICE */}
         <div className="bg-indigo-950/30 border border-indigo-500/20 rounded-xl p-4 flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
-          <p className="text-xs text-indigo-200/80 leading-relaxed">
-            <strong className="text-indigo-300">Catatan Teknologi:</strong> File terproteksi mengandung derau mikro adversarial yang tidak disadari indra manusia, namun membuat model AI Generator (Diffusion Model & Deepfake Voice Synthesizer) menghasilkan output rusak saat mencoba memproses file ini.
+          <p className="text-xs text-white leading-relaxed">
+            <strong className="text-indigo-400">Catatan Teknologi:</strong> File terproteksi mengandung derau mikro adversarial yang tidak disadari indra manusia, namun membuat model AI Generator (Diffusion Model & Deepfake Voice Synthesizer) menghasilkan output rusak saat mencoba memproses file ini.
           </p>
         </div>
 
