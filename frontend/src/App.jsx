@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   ShieldCheck,
   Upload,
@@ -34,6 +34,11 @@ export default function App() {
   const [audioPreview, setAudioPreview] = useState(null);
   const [audioProtected, setAudioProtected] = useState(null);
   const [audioLoading, setAudioLoading] = useState(false);
+
+  // slider
+  const [mode, setMode] = useState("Normal");
+  const modes = ['Fast', 'Normal', 'Strong'];
+
 
   // =========================
   // UPLOAD IMAGE
@@ -374,6 +379,73 @@ export default function App() {
           </div>
 
         </section>
+
+        <div className="w-full mb-5 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+          <div className="mb-4 flex items-center justify-between">
+            <span className="text-sm font-medium text-white/80">
+              Protection Level
+            </span>
+
+            <span className="text-sm font-semibold text-blue-500 transition-all duration-300">
+              {mode}
+            </span>
+          </div>
+
+          <div className="relative mx-2 h-12">
+            {/* Track */}
+            <div className="absolute left-0 right-0 top-2 h-1 rounded-full bg-white/15" />
+
+            {/* Progress */}
+            <div
+              className="absolute left-0 top-2 h-1 rounded-full bg-blue-500 transition-all duration-300 ease-out"
+              style={{
+                width: `${(modes.indexOf(mode) / 2) * 100}%`,
+              }}
+            />
+
+            {/* Thumb */}
+            <div
+              className="absolute top-0 h-5 w-5 -translate-x-1/2 rounded-full bg-blue-500 shadow-lg shadow-white/20 transition-all duration-300 ease-out"
+              style={{
+                left: `${(modes.indexOf(mode) / 2) * 100}%`,
+              }}
+            />
+
+            {/* Options */}
+            <div className="relative z-10 flex justify-between">
+              {modes.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => setMode(item)}
+                  className={`flex flex-col gap-2 transition-all duration-300 ${
+                    item === "Fast"
+                      ? "items-start"
+                      : item === "Strong"
+                      ? "items-end"
+                      : "items-center"
+                  } ${
+                    mode === item
+                      ? "scale-[1.02] text-white"
+                      : "text-white/50 hover:text-white/80"
+                  }`}
+                >
+                  <span
+                    className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                      mode === item
+                        ? "scale-110 bg-white"
+                        : "bg-white/25"
+                    }`}
+                  />
+
+                  <span className="text-xs font-medium">
+                    {item}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* =====================================================
             CARDS
