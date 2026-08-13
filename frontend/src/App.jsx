@@ -3,6 +3,7 @@ import {
   ShieldCheck,
   Upload,
   Mic,
+  Video,
   Download,
   Loader2,
   CheckCircle2,
@@ -450,8 +451,56 @@ export default function App() {
         {/* =====================================================
             CARDS
         ====================================================== */}
+        {/* =====================================================
+    VIDEO DISPLAY
+====================================================== */}
 
+<div className="group relative mb-7 max-w-2xl mx-auto">
+
+  {/* Glow */}
+  <div className="absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-indigo-500/30 opacity-0 group-hover:opacity-100 blur-sm transition duration-500" />
+
+  <div className="relative rounded-3xl border border-white/10 bg-white/[0.045] backdrop-blur-2xl p-6 shadow-2xl transition-all duration-500 group-hover:-translate-y-1 group-hover:border-cyan-400/30">
+
+    {/* Header */}
+    <div className="flex items-center justify-between mb-6">
+
+    </div>
+
+
+    {/* VIDEO */}
+    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black">
+
+      <video
+        src="/video.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-auto max-h-[500px] rounded-2xl bg-black"
+      />
+
+    </div>
+
+
+    {/* Status */}
+    <div className="flex items-center justify-center mt-4">
+
+      <div className="flex items-center gap-2 text-[10px] text-white bg-cyan-500/20 border border-cyan-400/20 px-3 py-1.5 rounded-full">
+
+        <ShieldCheck className="w-3 h-3 text-cyan-300" />
+
+        Video Protection Preview
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
+          
 
           {/* =====================================================
               IMAGE CARD
