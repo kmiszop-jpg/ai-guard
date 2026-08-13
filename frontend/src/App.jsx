@@ -266,11 +266,11 @@ export default function App() {
               <div className="flex items-center gap-2">
 
                 <h1 className="font-bold tracking-wider text-white">
-                  AI GUARDIAN
+                  YourShield AI
                 </h1>
 
                 <span className="text-[9px] px-2 py-0.5 rounded-full bg-indigo-500/15 text-white border border-indigo-400/20">
-                  PROTOTYPE
+                  Tools
                 </span>
 
               </div>
